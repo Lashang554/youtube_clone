@@ -4,7 +4,7 @@ import ShortsList from "../components/ShortsList";
 
 export default function Home() {
   return (
-    <div className="flex-1 bg-black">
+    <div className="flex-1 bg-black pb-6">
       <CategoryBar />
       <VideoList />
       <ShortsList />

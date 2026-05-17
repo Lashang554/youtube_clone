@@ -1,15 +1,15 @@
 export default function CategoryBar() {
   const categories = [
     "All", "Music", "Live", "JavaScript", "Web Development",
-    "Cricket", "Stadiums", "Mixes", "Mantras", "Movies"
+    "Cricket", "Stadiums", "Mixes", "Mantras", "Movies", "Comedy", "MMA"
   ];
 
   return (
-    <div className="flex gap-3 overflow-x-auto px-4 py-2 bg-black text-white scrollbar-hide">
+    <div className="sticky top-[57px] z-10 flex gap-3 overflow-x-auto border-b border-zinc-900 bg-black px-4 py-3 text-white">
       {categories.map((cat, i) => (
         <button
           key={i}
-          className="px-4 py-1 bg-zinc-800 rounded-full text-sm whitespace-nowrap hover:bg-white hover:text-black"
+          className="whitespace-nowrap rounded-full bg-zinc-800 px-4 py-1.5 text-sm transition hover:bg-white hover:text-black focus:outline-none focus:ring-2 focus:ring-red-500"
         >
           {cat}
         </button>
