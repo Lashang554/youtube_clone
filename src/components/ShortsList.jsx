@@ -1,10 +1,6 @@
-export default function ShortsList() {
-	const shorts = [
-		{ id: 1, title: "Dance Performance", thumbnail: "https://upload.wikimedia.org/wikipedia/commons/3/38/Two_dancers.jpg" },
-		{ id: 2, title: "Funny Clip", thumbnail: "https://i.pinimg.com/236x/6f/42/15/6f421598af56c4a8794a2b6b21869056.jpg" },
-		{ id: 3, title: "Cricket Highlights", thumbnail: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcSnxXnptLl2UhZNaG8ChgihyQPQ73ddx5IQ&s" },
-	];
+import { shorts } from "../data/videos";
 
+export default function ShortsList() {
 	return (
 		<div className="px-4 bg-black">
 			<h2 className="text-white text-lg font-semibold mb-3">Shorts</h2>
@@ -23,5 +19,4 @@ export default function ShortsList() {
 		</div>
 	);
 }
-
 
