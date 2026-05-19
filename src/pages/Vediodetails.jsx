@@ -5,6 +5,7 @@ export default function VideoDetails() {
 	const { id } = useParams();
 	const video = videos.find((item) => item.id === id);
 	const suggestedVideos = videos.filter((item) => item.id !== id).slice(0, 4);
+	const actions = ["Like", "Share", "Save"];
 
 	if (!video) {
 		return (
@@ -30,17 +31,37 @@ export default function VideoDetails() {
 				</div>
 
 				<h1 className="mt-4 text-2xl font-bold">{video.title}</h1>
-				<div className="mt-3 flex items-center gap-3">
-					<img
-						src={video.channelImg}
-						alt={`${video.channel} channel`}
-						className="h-11 w-11 rounded-full object-cover"
-					/>
-					<div>
-						<p className="font-semibold">{video.channel}</p>
-						<p className="text-sm text-gray-400">
-							{video.views} • {video.time}
-						</p>
+				<div className="mt-3 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+					<div className="flex items-center gap-3">
+						<img
+							src={video.channelImg}
+							alt={`${video.channel} channel`}
+							className="h-11 w-11 rounded-full object-cover"
+						/>
+						<div>
+							<p className="font-semibold">{video.channel}</p>
+							<p className="text-sm text-gray-400">
+								{video.views} • {video.time} • {video.category}
+							</p>
+						</div>
+					</div>
+
+					<div className="flex flex-wrap items-center gap-2">
+						<button
+							type="button"
+							className="rounded-full bg-white px-4 py-2 text-sm font-semibold text-black transition hover:bg-zinc-200"
+						>
+							Subscribe
+						</button>
+						{actions.map((action) => (
+							<button
+								key={action}
+								type="button"
+								className="rounded-full bg-zinc-800 px-4 py-2 text-sm font-medium text-white transition hover:bg-zinc-700 focus:outline-none focus:ring-2 focus:ring-red-500"
+							>
+								{action}
+							</button>
+						))}
 					</div>
 				</div>
 
@@ -70,7 +91,9 @@ export default function VideoDetails() {
 								<p className="mt-1 text-xs text-gray-400">
 									{suggestedVideo.channel}
 								</p>
-								<p className="text-xs text-gray-400">{suggestedVideo.views}</p>
+								<p className="text-xs text-gray-400">
+									{suggestedVideo.views} • {suggestedVideo.time}
+								</p>
 							</div>
 						</Link>
 					))}
