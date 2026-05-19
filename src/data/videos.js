@@ -15,6 +15,7 @@ import venomImg from "../image/venom.jpg";
 export const videos = [
 	{
 		id: "nepal-vs-stars",
+		category: "Cricket",
 		title: "Nepal VS Stars | Top End T20 SERIES 2025",
 		channel: "Kantipur Max HD",
 		views: "66K watching",
@@ -27,6 +28,7 @@ export const videos = [
 	},
 	{
 		id: "achyutam-keshavam",
+		category: "Mantras",
 		title: "ACHYUTAM KESHAVAM KRISHNA DAMODARAM",
 		channel: "Hindu God Lovers",
 		views: "152K views",
@@ -39,6 +41,7 @@ export const videos = [
 	},
 	{
 		id: "hindi-music-remixes",
+		category: "Music",
 		title: "Hindi music video 2025 and remixes",
 		channel: "Music",
 		views: "100K views",
@@ -51,6 +54,7 @@ export const videos = [
 	},
 	{
 		id: "venom-last-dance",
+		category: "Movies",
 		title: "Venom: The Last Dance with Tom Hardy",
 		channel: "Movie Central",
 		views: "1.2M views",
@@ -63,6 +67,7 @@ export const videos = [
 	},
 	{
 		id: "ufc-292",
+		category: "MMA",
 		title: "UFC 292: Adesanya vs Cannonier",
 		channel: "UFC",
 		views: "1.2M views",
@@ -75,6 +80,7 @@ export const videos = [
 	},
 	{
 		id: "comedy-night-20",
+		category: "Comedy",
 		title: "COMEDY NIGHT WITH CHAMPIONS | Episode 20",
 		channel: "Comedy Night",
 		views: "500K views",
@@ -87,6 +93,7 @@ export const videos = [
 	},
 	{
 		id: "durga-devotional",
+		category: "Mantras",
 		title: "Morning Durga Bhajan Collection",
 		channel: "Hindu God Lovers",
 		views: "152K views",
@@ -99,6 +106,7 @@ export const videos = [
 	},
 	{
 		id: "mma-fight-night",
+		category: "MMA",
 		title: "MMA fight night 2025",
 		channel: "MMA",
 		views: "64K views",
@@ -109,6 +117,18 @@ export const videos = [
 		description:
 			"Extended MMA fight coverage with walkouts, main-card action, and replay moments.",
 	},
+];
+
+export const categories = [
+	"All",
+	"Music",
+	"Live",
+	"Cricket",
+	"Mantras",
+	"Movies",
+	"Comedy",
+	"MMA",
+	"Mixes",
 ];
 
 export const shorts = [
