@@ -6,11 +6,13 @@ export default function SearchResult() {
 	const { search } = useLocation();
 	const query = new URLSearchParams(search).get("q")?.trim() ?? "";
 	const normalizedQuery = query.toLowerCase();
-	const results = videos.filter((video) => {
-		const searchableText = `${video.title} ${video.channel} ${video.description}`;
+	const results = query
+		? videos.filter((video) => {
+				const searchableText = `${video.title} ${video.channel} ${video.description} ${video.category}`;
 
-		return searchableText.toLowerCase().includes(normalizedQuery);
-	});
+				return searchableText.toLowerCase().includes(normalizedQuery);
+			})
+		: [];
 
 	return (
 		<div className="bg-black p-4 text-white">
@@ -23,11 +25,15 @@ export default function SearchResult() {
 				</p>
 			</div>
 
-			{results.length > 0 ? (
+			{query && results.length > 0 ? (
 				<div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
 					{results.map((video) => (
 						<VideoCard key={video.id} video={video} />
 					))}
+				</div>
+			) : !query ? (
+				<div className="rounded-xl border border-zinc-800 bg-zinc-950 p-6 text-gray-300">
+					Start by searching for a title, channel, or category.
 				</div>
 			) : (
 				<div className="rounded-xl border border-zinc-800 bg-zinc-950 p-6 text-gray-300">
