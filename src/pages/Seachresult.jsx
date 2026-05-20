@@ -1,5 +1,6 @@
 import { useLocation } from "react-router-dom";
 import VideoCard from "../components/VideoCard";
+import { SearchIcon } from "../components/YoutubeIcons";
 import { videos } from "../data/videos";
 
 export default function SearchResult() {
@@ -32,11 +33,13 @@ export default function SearchResult() {
 					))}
 				</div>
 			) : !query ? (
-				<div className="rounded-xl border border-zinc-800 bg-zinc-950 p-6 text-gray-300">
+				<div className="flex items-center gap-3 rounded-xl border border-zinc-800 bg-zinc-950 p-6 text-gray-300">
+					<SearchIcon className="h-6 w-6 flex-shrink-0 text-zinc-500" />
 					Start by searching for a title, channel, or category.
 				</div>
 			) : (
-				<div className="rounded-xl border border-zinc-800 bg-zinc-950 p-6 text-gray-300">
+				<div className="flex items-center gap-3 rounded-xl border border-zinc-800 bg-zinc-950 p-6 text-gray-300">
+					<SearchIcon className="h-6 w-6 flex-shrink-0 text-zinc-500" />
 					No videos matched your search.
 				</div>
 			)}

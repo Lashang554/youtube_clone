@@ -1,11 +1,16 @@
 import { Link, useParams } from "react-router-dom";
+import { LikeIcon, MoreVerticalIcon, SaveIcon, ShareIcon } from "../components/YoutubeIcons";
 import { videos } from "../data/videos";
 
 export default function VideoDetails() {
 	const { id } = useParams();
 	const video = videos.find((item) => item.id === id);
 	const suggestedVideos = videos.filter((item) => item.id !== id).slice(0, 4);
-	const actions = ["Like", "Share", "Save"];
+	const actions = [
+		{ label: "Like", icon: LikeIcon },
+		{ label: "Share", icon: ShareIcon },
+		{ label: "Save", icon: SaveIcon },
+	];
 
 	if (!video) {
 		return (
@@ -55,11 +60,12 @@ export default function VideoDetails() {
 						</button>
 						{actions.map((action) => (
 							<button
-								key={action}
+								key={action.label}
 								type="button"
-								className="rounded-full bg-zinc-800 px-4 py-2 text-sm font-medium text-white transition hover:bg-zinc-700 focus:outline-none focus:ring-2 focus:ring-red-500"
+								className="inline-flex items-center gap-2 rounded-full bg-zinc-800 px-4 py-2 text-sm font-medium text-white transition hover:bg-zinc-700 focus:outline-none focus:ring-2 focus:ring-red-500"
 							>
-								{action}
+								<action.icon className="h-5 w-5" />
+								{action.label}
 							</button>
 						))}
 					</div>
@@ -74,20 +80,26 @@ export default function VideoDetails() {
 				<h2 className="mb-3 text-lg font-semibold">Up next</h2>
 				<div className="space-y-4">
 					{suggestedVideos.map((suggestedVideo) => (
-						<Link
+						<article
 							key={suggestedVideo.id}
-							to={`/watch/${suggestedVideo.id}`}
-							className="flex gap-3 rounded-lg p-2 transition hover:bg-zinc-900"
+							className="group flex gap-3 rounded-lg p-2 transition hover:bg-zinc-900"
 						>
-							<img
-								src={suggestedVideo.thumbnail}
-								alt={suggestedVideo.title}
-								className="h-20 w-32 rounded-lg object-cover"
-							/>
+							<Link to={`/watch/${suggestedVideo.id}`} className="flex-shrink-0 rounded-lg outline-none focus-visible:ring-2 focus-visible:ring-red-500">
+								<img
+									src={suggestedVideo.thumbnail}
+									alt={suggestedVideo.title}
+									className="h-20 w-32 rounded-lg object-cover"
+								/>
+							</Link>
 							<div className="min-w-0">
-								<h3 className="line-clamp-2 text-sm font-semibold">
-									{suggestedVideo.title}
-								</h3>
+								<Link
+									to={`/watch/${suggestedVideo.id}`}
+									className="block rounded outline-none focus-visible:ring-2 focus-visible:ring-red-500"
+								>
+									<h3 className="line-clamp-2 text-sm font-semibold">
+										{suggestedVideo.title}
+									</h3>
+								</Link>
 								<p className="mt-1 text-xs text-gray-400">
 									{suggestedVideo.channel}
 								</p>
@@ -95,7 +107,14 @@ export default function VideoDetails() {
 									{suggestedVideo.views} • {suggestedVideo.time}
 								</p>
 							</div>
-						</Link>
+							<button
+								type="button"
+								aria-label={`More actions for ${suggestedVideo.title}`}
+								className="h-8 w-8 flex-shrink-0 rounded-full p-1.5 text-zinc-300 opacity-100 transition hover:bg-zinc-800 sm:opacity-0 sm:group-hover:opacity-100"
+							>
+								<MoreVerticalIcon className="h-5 w-5" />
+							</button>
+						</article>
 					))}
 				</div>
 			</aside>

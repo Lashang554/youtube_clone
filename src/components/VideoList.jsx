@@ -1,4 +1,5 @@
 import VideoCard from "./VideoCard";
+import { TuneIcon } from "./YoutubeIcons";
 
 export default function VideoList({ videos, selectedCategory }) {
 	return (
@@ -10,7 +11,8 @@ export default function VideoList({ videos, selectedCategory }) {
 						{videos.length} {selectedCategory === "All" ? "videos" : selectedCategory} for you
 					</p>
 				</div>
-				<span className="hidden rounded-full border border-zinc-800 px-3 py-1 text-xs font-medium text-gray-300 sm:inline-flex">
+				<span className="hidden items-center gap-2 rounded-full border border-zinc-800 px-3 py-1 text-xs font-medium text-gray-300 sm:inline-flex">
+					<TuneIcon className="h-4 w-4" />
 					Fresh picks
 				</span>
 			</div>
