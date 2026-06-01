@@ -18,7 +18,7 @@ export default function Sidebar() {
           <Link
             key={link.label}
             to={link.to}
-            className="flex min-w-14 flex-col items-center gap-1 rounded-lg px-2 py-1.5 text-[11px] transition hover:bg-zinc-900 hover:text-red-500 md:w-16"
+            className="flex min-w-14 flex-col items-center gap-1 rounded-lg px-3 py-1.5 text-[11px] transition hover:bg-zinc-900 hover:text-red-500 md:w-16"
           >
             <Icon className="h-6 w-6" />
             <span className="max-w-full truncate">{link.label}</span>
